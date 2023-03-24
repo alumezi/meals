@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import NextAuth, { type Session, type NextAuthOptions } from "next-auth";
 import InstagramProvider from "next-auth/providers/instagram";
-import AppleProvider from "next-auth/providers/apple";
+import FacebookProvider from "next-auth/providers/facebook";
 // Prisma adapter for NextAuth, optional and can be removed
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
@@ -18,13 +18,9 @@ export const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
   // adapter: PrismaAdapter(prisma),
   providers: [
-    InstagramProvider({
-      clientId: process.env.INSTAGRAM_CLIENT_ID,
-      clientSecret: process.env.INSTAGRAM_CLIENT_SECRET,
-    }),
-    AppleProvider({
-      clientId: process.env.APPLE_ID || "",
-      clientSecret: process.env.APPLE_SECRET || "",
+    FacebookProvider({
+      clientId: process.env.FACEBOOK_ID || "",
+      clientSecret: process.env.FACEBOOK_SECRET || "",
     }),
   ],
 };
