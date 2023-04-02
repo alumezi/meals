@@ -37,7 +37,6 @@ export default Home;
 
 const AuthShowcase: React.FC = () => {
   const res = useSession();
-  console.log("🚀 ~ file: index.tsx:41 ~ res", res);
 
   const { data } = res;
 

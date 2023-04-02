@@ -20,6 +20,7 @@ interface Food {
 }
 
 interface Plans {
+  id: string;
   image: StaticImageData;
   title: string;
   description: string;
@@ -29,6 +30,7 @@ interface Plans {
 
 const plans: Plans[] = [
   {
+    id: "1234-1234-1234-1234",
     image: food1,
     title: "Plani 1",
     description: "Nje dite ne jave!",
@@ -77,6 +79,7 @@ const plans: Plans[] = [
     price: 16,
   },
   {
+    id: "1234-1234-1234-1234",
     image: food2,
     title: "Plani 2",
     description: "Dy ditë në javë!",
@@ -125,6 +128,7 @@ const plans: Plans[] = [
     price: 16,
   },
   {
+    id: "1234-1234-1234-1234",
     image: food4,
     title: "Plani 3",
     description: "Tre ditë në javë!",
@@ -173,6 +177,7 @@ const plans: Plans[] = [
     price: 16,
   },
   {
+    id: "1234-1234-1234-1234",
     image: food5,
     title: "Plani 4",
     description: "Katër ditë në javë!",
@@ -221,6 +226,7 @@ const plans: Plans[] = [
     price: 16,
   },
   {
+    id: "1234-1234-1234-1234",
     image: food6,
     title: "Plani 5",
     description: "Pesë ditë në javë!",
@@ -274,26 +280,23 @@ const Info = () => {
   return (
     <div className="carousel-center carousel h-screen w-screen space-x-4 bg-slate-700 p-4">
       {plans.map((item) => (
-        <>
-          <div className="card-compact carousel-item card mb-20  w-11/12 max-w-md bg-base-100 shadow-xl">
-            <figure className="h-1/2">
-              <Image
-                alt="meal-plan"
-                src={item.image}
-                className="h-full object-cover "
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">{item.title}</h2>
-              <p>{item.description}</p>
-              <div className="card-actions justify-end">
-                <Link href="/detail">
-                  <button className="btn-primary btn">Zgjedh</button>
-                </Link>
-              </div>
-            </div>
+        <Link
+          key={item.id}
+          href="/detail"
+          className="card-compact carousel-item card mb-20  w-11/12 max-w-md bg-base-100 shadow-xl"
+        >
+          <figure className="h-1/2">
+            <Image
+              alt="meal-plan"
+              src={item.image}
+              className="h-full object-cover "
+            />
+          </figure>
+          <div className="card-body">
+            <h2 className="card-title">{item.title}</h2>
+            <p>{item.description}</p>
           </div>
-        </>
+        </Link>
       ))}
     </div>
   );
