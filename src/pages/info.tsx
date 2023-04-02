@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 import food1 from "src/assets/images/food1.webp";
 import food2 from "src/assets/images/food2.jpg";
 import food4 from "src/assets/images/food4.webp";
@@ -286,7 +287,9 @@ const Info = () => {
               <h2 className="card-title">{item.title}</h2>
               <p>{item.description}</p>
               <div className="card-actions justify-end">
-                <button className="btn-primary btn">Zgjedh</button>
+                <Link href="/detail">
+                  <button className="btn-primary btn">Zgjedh</button>
+                </Link>
               </div>
             </div>
           </div>
